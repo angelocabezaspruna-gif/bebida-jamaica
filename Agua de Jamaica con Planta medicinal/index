@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infusión Medicinal: Jamaica & Guanábana</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Encabezado / Hero -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1 class="fade-in">Poder Natural: Jamaica & Guanábana</h1>
+      <p class="fade-in-delay">Descubre el elixir medicinal que transforma tu salud de forma 100% natural.</p>
+      <a href="#dosificacion" class="btn-main">Calcular mi Dosis</a>
+    </div>
+  </header>
+
+  <!-- Sección de Beneficios -->
+  <section class="container">
+    <h2 class="section-title">Beneficios Principales</h2>
+    <div class="grid">
+      <div class="card card-jamaica">
+        <h3>Flor de Jamaica</h3>
+        <ul>
+          <li>Diurético natural y desintoxicante.</li>
+          <li>Regula la presión arterial.</li>
+          <li>Rica en antioxidantes y vitamina C.</li>
+          <li>Ayuda a reducir el colesterol malo (LDL).</li>
+        </ul>
+      </div>
+
+      <div class="card card-guanabana">
+        <h3>Hoja de Guanábana</h3>
+        <ul>
+          <li>Propiedades antiinflamatorias intensas.</li>
+          <li>Refuerza el sistema inmunológico.</li>
+          <li>Propiedades relajantes para combatir el estrés.</li>
+          <li>Estabiliza los niveles de glucosa en sangre.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dosis según la persona -->
+  <section id="dosificacion" class="container">
+    <h2 class="section-title">Guía de Consumo y Gramaje</h2>
+    <div class="grid">
+      
+      <div class="card info-card">
+        <span class="badge">General</span>
+        <h3>Personas Adultas</h3>
+        <p class="dosis"><strong>Flor de Jamaica:</strong> 8 - 10 g / día</p>
+        <p class="dosis"><strong>Hoja de Guanábana:</strong> 2 - 3 hojas (2 g) / día</p>
+        <p class="desc">Ideal para mantener la hidratación, mejorar la digestión y prevenir el envejecimiento celular.</p>
+      </div>
+
+      <div class="card info-card highlight">
+        <span class="badge badge-diabetes">Especializado</span>
+        <h3>Personas con Diabetes</h3>
+        <p class="dosis"><strong>Flor de Jamaica:</strong> 6 - 8 g / día</p>
+        <p class="dosis"><strong>Hoja de Guanábana:</strong> 3 - 4 hojas (3 g) / día</p>
+        <p class="desc">Excelente combinación para optimizar la sensibilidad a la insulina y regular la glucosa en ayunas (consumir sin endulzantes).</p>
+      </div>
+
+      <div class="card info-card">
+        <span class="badge badge-kids">Pediátrico</span>
+        <h3>Niños (Mayores de 6 años)</h3>
+        <p class="dosis"><strong>Flor de Jamaica:</strong> 3 - 4 g / día</p>
+        <p class="dosis"><strong>Hoja de Guanábana:</strong> 1 hoja (1 g) / día</p>
+        <p class="desc">Perfecto como refresco natural diluido en abundante agua para reforzar defensas. *Consultar con su pediatra.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Calculadora Interactiva -->
+  <section class="interactive-section">
+    <h2>Calculadora Personalizada de Dosis</h2>
+    <p>Selecciona tu perfil para obtener la preparación exacta recomendada para 1 Litro de agua:</p>
+    
+    <div class="calculator-box">
+      <select id="userType">
+        <option value="normal">Adulto Promedio</option>
+        <option value="diabetes">Persona con Diabetes</option>
+        <option value="kids">Niño (6-12 años)</option>
+      </select>
+      <button onclick="calcularDosis()" class="btn-calc">Obtener Receta</button>
+
+      <div id="result" class="result-box hidden">
+        <h4 id="resultTitle"></h4>
+        <p id="resultDetails"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pie de página con Créditos del Emprendimiento -->
+  <footer>
+    <div class="footer-content">
+      <h3>Proyecto de Emprendimiento e Innovación Tecnológica</h3>
+      <p class="materia">Materia: <strong>6-B - EMPRENDIMIENTO E INNOVACIÓN TECNOLÓGICA</strong></p>
+      
+      <div class="integrantes">
+        <p><strong>Desarrollado por:</strong></p>
+        <ul>
+          <li>ANGELO CABEZAS PRUNA</li>
+          <li>DIEGO ARIAS OLIVO</li>
+        </ul>
+      </div>
+
+      <p class="copyright">&copy; 2026 Bebida Medicinal Jamaica & Guanábana — Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

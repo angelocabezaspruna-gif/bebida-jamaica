@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f7f9fc;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header animado */
+.hero {
+  background: linear-gradient(135deg, #800020, #2e7d32);
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+/* Animaciones CSS */
+.fade-in {
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.fade-in-delay {
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Layout */
+.container {
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #1b4332;
+  font-size: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* Tarjetas */
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 5px solid transparent;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+}
+
+.card-jamaica { border-top-color: #a4133c; }
+.card-guanabana { border-top-color: #2b9348; }
+
+.badge {
+  background: #e2e8f0;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badge-diabetes { background: #ffe3e3; color: #c92a2a; }
+.badge-kids { background: #e7f5ff; color: #1864ab; }
+
+.dosis {
+  font-size: 0.95rem;
+  margin-top: 8px;
+  color: #2b9348;
+}
+
+.desc {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 10px;
+}
+
+/* Botones y Calculadora */
+.btn-main, .btn-calc {
+  display: inline-block;
+  background: #2b9348;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 15px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-main:hover, .btn-calc:hover {
+  background: #1b4332;
+}
+
+.interactive-section {
+  background: #e8f5e9;
+  text-align: center;
+  padding: 50px 20px;
+  border-radius: 30px;
+  max-width: 900px;
+  margin: 40px auto;
+}
+
+select {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  margin-right: 10px;
+}
+
+.result-box {
+  margin-top: 25px;
+  padding: 20px;
+  background: white;
+  border-radius: 15px;
+  display: inline-block;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  animation: popIn 0.4s ease;
+}
+
+.hidden { display: none; }
+
+@keyframes popIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #1b4332;
+  color: white;
+  margin-top: 40px;
+}
