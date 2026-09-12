@@ -11,7 +11,7 @@ body {
   line-height: 1.6;
 }
 
-/* Header animado */
+/* Header */
 .hero {
   background: linear-gradient(135deg, #800020, #2e7d32);
   color: white;
@@ -23,18 +23,12 @@ body {
 }
 
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   margin-bottom: 10px;
 }
 
-/* Animaciones CSS */
-.fade-in {
-  animation: fadeIn 1.2s ease-in-out;
-}
-
-.fade-in-delay {
-  animation: fadeIn 2s ease-in-out;
-}
+.fade-in { animation: fadeIn 1.2s ease-in-out; }
+.fade-in-delay { animation: fadeIn 2s ease-in-out; }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-15px); }
@@ -52,7 +46,7 @@ body {
   text-align: center;
   margin-bottom: 30px;
   color: #1b4332;
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .grid {
@@ -78,6 +72,7 @@ body {
 
 .card-jamaica { border-top-color: #a4133c; }
 .card-guanabana { border-top-color: #2b9348; }
+.card-flavor { border-top-color: #f7b801; }
 
 .badge {
   background: #e2e8f0;
@@ -90,6 +85,9 @@ body {
 
 .badge-diabetes { background: #ffe3e3; color: #c92a2a; }
 .badge-kids { background: #e7f5ff; color: #1864ab; }
+.badge-pina { background: #fff3bf; color: #f59f00; }
+.badge-panela { background: #e6fcf5; color: #0ca678; }
+.badge-zero { background: #f8f9fa; color: #495057; border: 1px solid #ccc; }
 
 .dosis {
   font-size: 0.95rem;
@@ -103,7 +101,37 @@ body {
   margin-top: 10px;
 }
 
-/* Botones y Calculadora */
+/* Formulario interactivo */
+.interactive-section {
+  background: #e8f5e9;
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: 30px;
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #1b4332;
+}
+
+select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background: white;
+}
+
 .btn-main, .btn-calc {
   display: inline-block;
   background: #2b9348;
@@ -116,50 +144,88 @@ body {
   border: none;
   cursor: pointer;
   transition: background 0.3s;
+  width: 100%;
 }
 
-.btn-main:hover, .btn-calc:hover {
-  background: #1b4332;
+.btn-whatsapp {
+  background: #25d366;
+  font-size: 1.1rem;
 }
 
-.interactive-section {
-  background: #e8f5e9;
-  text-align: center;
-  padding: 50px 20px;
-  border-radius: 30px;
-  max-width: 900px;
-  margin: 40px auto;
+.btn-whatsapp:hover {
+  background: #128c7e;
 }
 
-select {
-  padding: 10px 15px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-  margin-right: 10px;
+/* Botón flotante de WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: transform 0.3s;
 }
 
-.result-box {
-  margin-top: 25px;
-  padding: 20px;
-  background: white;
-  border-radius: 15px;
-  display: inline-block;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  animation: popIn 0.4s ease;
+.whatsapp-float:hover {
+  transform: scale(1.1);
 }
 
-.hidden { display: none; }
-
-@keyframes popIn {
-  0% { transform: scale(0.8); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+.whatsapp-icon {
+  width: 35px;
+  height: 35px;
+  fill: white;
 }
 
+/* Footer / Créditos */
 footer {
+  background: linear-gradient(135deg, #1b4332, #081c15);
+  color: #f1f1f1;
   text-align: center;
-  padding: 20px;
-  background: #1b4332;
-  color: white;
-  margin-top: 40px;
+  padding: 40px 20px 20px;
+  margin-top: 50px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+.footer-content h3 {
+  color: #74c69d;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.footer-content .materia {
+  font-size: 0.9rem;
+  color: #d8f3dc;
+  margin-bottom: 20px;
+}
+
+.integrantes {
+  background: rgba(255, 255, 255, 0.08);
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.integrantes p {
+  color: #b7e4c7;
+  font-size: 0.85rem;
+  margin-bottom: 5px;
+}
+
+.integrantes ul { list-style: none; }
+.integrantes li { font-size: 1rem; font-weight: 600; color: #fff; }
+
+.copyright {
+  font-size: 0.8rem;
+  color: #95d5b2;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 15px;
 }
