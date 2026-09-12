@@ -14,7 +14,7 @@ function enviarWhatsApp() {
   window.open(`https://wa.me/${numeroTelefono}?text=${mensaje}`, '_blank');
 }
 
-/* Lógica de la Inteligencia Artificial (Chatbot) */
+/* Lógica de Chatbot con IA Real (OpenAI API) */
 function toggleChat() {
   const chatWin = document.getElementById("aiChatWindow");
   chatWin.classList.toggle("hidden");
@@ -24,7 +24,10 @@ function handleKeyPress(e) {
   if (e.key === "Enter") sendMessage();
 }
 
-function sendMessage() {
+// Reemplaza 'TU_API_KEY_AQUI' con tu clave de API de OpenAI (https://platform.openai.com)
+const OPENAI_API_KEY = "TU_API_KEY_AQUI"; 
+
+async function sendMessage() {
   const input = document.getElementById("userInput");
   const text = input.value.trim();
   if (!text) return;
@@ -32,10 +35,45 @@ function sendMessage() {
   appendMessage(text, "user-msg");
   input.value = "";
 
-  setTimeout(() => {
-    const response = getAIResponse(text.toLowerCase());
-    appendMessage(response, "bot-msg");
-  }, 600);
+  // Mensaje temporal de "pensando..."
+  appendMessage("<i>Procesando respuesta...</i>", "bot-msg-temp");
+
+  try {
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${OPENAI_API_KEY}`
+      },
+      body: JSON.stringify({
+        model: "gpt-3.5-turbo",
+        messages: [
+          {
+            role: "system",
+            content: "Eres un experto asistente virtual medicinal para un emprendimiento que vende infusiones naturales de Flor de Jamaica y Hoja de Guanábana (con opciones de Piña y Panela). Responde amablemente y de forma resumida cualquier duda sobre salud, beneficios, preparación, o temas generales."
+          },
+          { role: "user", content: text }
+        ],
+        max_tokens: 150
+      })
+    });
+
+    const data = await response.json();
+    
+    // Eliminar mensaje temporal
+    const tempMsg = document.querySelector(".bot-msg-temp");
+    if (tempMsg) tempMsg.remove();
+
+    if (data.choices && data.choices.length > 0) {
+      appendMessage(data.choices[0].message.content, "bot-msg");
+    } else {
+      appendMessage("Lo siento, no pude obtener una respuesta en este momento.", "bot-msg");
+    }
+  } catch (error) {
+    const tempMsg = document.querySelector(".bot-msg-temp");
+    if (tempMsg) tempMsg.remove();
+    appendMessage("Hubo un problema al conectar con la IA. Asegúrate de configurar una API Key válida.", "bot-msg");
+  }
 }
 
 function appendMessage(msg, type) {
@@ -45,22 +83,4 @@ function appendMessage(msg, type) {
   div.innerHTML = msg;
   body.appendChild(div);
   body.scrollTop = body.scrollHeight;
-}
-
-function getAIResponse(input) {
-  if (input.includes("diabetes") || input.includes("azúcar") || input.includes("glucosa")) {
-    return "Para personas con diabetes recomendamos la opción **Sin Panela**. La hoja de guanábana ayuda a reducir la glucosa en sangre y mejorar la sensibilidad a la insulina.";
-  } else if (input.includes("piña") || input.includes("digest")) {
-    return "Nuestra versión con **Piña** contiene bromelina natural, excelente para desinflamar el estómago y mejorar la digestión acelerada.";
-  } else if (input.includes("niño") || input.includes("niños") || input.includes("pediatric")) {
-    return "Los niños mayores a 6 años pueden consumirlo en dosis bajas (3-4g de jamaica por litro) preferiblemente endulzado con panela orgánica para aportar energía.";
-  } else if (input.includes("dosis") || input.includes("gramos") || input.includes("preparar")) {
-    return "Para un adulto estándar la dosis óptima es **8 a 10g de jamaica** y **2 a 3 hojas de guanábana** hervidas por cada litro de agua.";
-  } else if (input.includes("panela") || input.includes("dulce")) {
-    return "La panela orgánica aporta minerales esenciales como hierro y calcio sin usar azúcares procesados. Es perfecta si buscas una bebida revitalizante.";
-  } else if (input.includes("hola") || input.includes("buenas")) {
-    return "¡Hola! ¿En qué te puedo ayudar hoy sobre nuestras bebidas medicinales?";
-  } else {
-    return "Es una gran pregunta. Nuestras infusión combina la acción antiinflamatoria de la Guanábana con el poder antioxidante de la Jamaica. Si deseas hacer un pedido personalizado, utiliza la sección de pedido por WhatsApp.";
-  }
 }
