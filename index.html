@@ -9,16 +9,18 @@
 </head>
 <body>
 
+  <!-- Header -->
   <header class="hero">
     <div class="hero-content">
       <h1 class="fade-in">Poder Natural: Jamaica & Guanábana</h1>
-      <p class="fade-in-delay">Descubre el elixir medicinal que transforma tu salud de forma 100% natural.</p>
-      <a href="#dosificacion" class="btn-main">Calcular mi Dosis</a>
+      <p class="fade-in-delay">Elixir medicinal 100% natural para potenciar tu salud diaria.</p>
+      <a href="#pedido" class="btn-main">¡Hacer Pedido por WhatsApp!</a>
     </div>
   </header>
 
+  <!-- Beneficios de la Infusión Base -->
   <section class="container">
-    <h2 class="section-title">Beneficios Principales</h2>
+    <h2 class="section-title">Beneficios Medicinales Básicos</h2>
     <div class="grid">
       <div class="card card-jamaica">
         <h3>Flor de Jamaica</h3>
@@ -26,24 +28,52 @@
           <li>Diurético natural y desintoxicante.</li>
           <li>Regula la presión arterial.</li>
           <li>Rica en antioxidantes y vitamina C.</li>
-          <li>Ayuda a reducir el colesterol malo (LDL).</li>
+          <li>Disminuye el colesterol malo (LDL).</li>
         </ul>
       </div>
 
       <div class="card card-guanabana">
         <h3>Hoja de Guanábana</h3>
         <ul>
-          <li>Propiedades antiinflamatorias intensas.</li>
+          <li>Potente antiinflamatorio y relajante.</li>
           <li>Refuerza el sistema inmunológico.</li>
-          <li>Propiedades relajantes para combatir el estrés.</li>
-          <li>Estabiliza los niveles de glucosa en sangre.</li>
+          <li>Ayuda a reducir la ansiedad y el estrés.</li>
+          <li>Estabiliza los niveles de glucosa.</li>
         </ul>
       </div>
     </div>
   </section>
 
+  <!-- Sección de Sabores y Variantes -->
+  <section class="container">
+    <h2 class="section-title">Nuestras Variantes y Sus Propiedades</h2>
+    <div class="grid">
+      <div class="card card-flavor">
+        <span class="badge badge-pina">Especial Sabor</span>
+        <h3>Infusión con Piña</h3>
+        <p class="dosis"><strong>Aporte Extra:</strong> Bromelina natural</p>
+        <p class="desc">Mejora la digestión, reduce la hinchazón abdominal y potencia el efecto diurético para quemar grasa naturalmente.</p>
+      </div>
+
+      <div class="card card-flavor">
+        <span class="badge badge-panela">Endulzado Natural</span>
+        <h3>Con Panela Orgánica</h3>
+        <p class="dosis"><strong>Aporte Extra:</strong> Minerales y energía</p>
+        <p class="desc">Aporta hierro, calcio y potasio sin químicos refinados. Ideal para recargar energía de forma saludable en niños y deportistas.</p>
+      </div>
+
+      <div class="card card-flavor">
+        <span class="badge badge-zero">Zero Azúcar</span>
+        <h3>Sin Panela (Pura)</h3>
+        <p class="dosis"><strong>Aporte Extra:</strong> 0% Calorías</p>
+        <p class="desc">La versión perfecta para personas con diabetes, en dieta keto o buscando máxima reducción de glucosa en sangre.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dosis según la persona -->
   <section id="dosificacion" class="container">
-    <h2 class="section-title">Guía de Consumo y Gramaje</h2>
+    <h2 class="section-title">Guía de Dosis Recomendada</h2>
     <div class="grid">
       
       <div class="card info-card">
@@ -51,7 +81,7 @@
         <h3>Personas Adultas</h3>
         <p class="dosis"><strong>Flor de Jamaica:</strong> 8 - 10 g / día</p>
         <p class="dosis"><strong>Hoja de Guanábana:</strong> 2 - 3 hojas (2 g) / día</p>
-        <p class="desc">Ideal para mantener la hidratación, mejorar la digestión y prevenir el envejecimiento celular.</p>
+        <p class="desc">Mantiene la hidratación y combate el envejecimiento celular.</p>
       </div>
 
       <div class="card info-card highlight">
@@ -59,7 +89,7 @@
         <h3>Personas con Diabetes</h3>
         <p class="dosis"><strong>Flor de Jamaica:</strong> 6 - 8 g / día</p>
         <p class="dosis"><strong>Hoja de Guanábana:</strong> 3 - 4 hojas (3 g) / día</p>
-        <p class="desc">Excelente combinación para optimizar la sensibilidad a la insulina y regular la glucosa en ayunas (consumir sin endulzantes).</p>
+        <p class="desc">Optimiza la sensibilidad a la insulina (se recomienda pedir la opción **Sin Panela**).</p>
       </div>
 
       <div class="card info-card">
@@ -67,33 +97,72 @@
         <h3>Niños (Mayores de 6 años)</h3>
         <p class="dosis"><strong>Flor de Jamaica:</strong> 3 - 4 g / día</p>
         <p class="dosis"><strong>Hoja de Guanábana:</strong> 1 hoja (1 g) / día</p>
-        <p class="desc">Perfecto como refresco natural diluido en abundante agua para reforzar defensas. *Consultar con su pediatra.</p>
+        <p class="desc">Refresco natural muy ligero para elevar las defensas de los pequeños.</p>
       </div>
 
     </div>
   </section>
 
-  <section class="interactive-section">
-    <h2>Calculadora Personalizada de Dosis</h2>
-    <p>Selecciona tu perfil para obtener la preparación exacta recomendada para 1 Litro de agua:</p>
+  <!-- Calculadora y Pedido Personalizado -->
+  <section id="pedido" class="interactive-section">
+    <h2>Personaliza tu Pedido</h2>
+    <p>Selecciona tu perfil, sabor y dulce ideal para enviar tu pedido directo a nuestro WhatsApp:</p>
     
     <div class="calculator-box">
-      <select id="userType">
-        <option value="normal">Adulto Promedio</option>
-        <option value="diabetes">Persona con Diabetes</option>
-        <option value="kids">Niño (6-12 años)</option>
-      </select>
-      <button onclick="calcularDosis()" class="btn-calc">Obtener Receta</button>
-
-      <div id="result" class="result-box hidden">
-        <h4 id="resultTitle"></h4>
-        <p id="resultDetails"></p>
+      <div class="form-group">
+        <label>Tipo de Consumidor:</label>
+        <select id="userType">
+          <option value="Adulto Promedio">Adulto Promedio</option>
+          <option value="Persona con Diabetes">Persona con Diabetes</option>
+          <option value="Niño (6-12 años)">Niño (6-12 años)</option>
+        </select>
       </div>
+
+      <div class="form-group">
+        <label>Sabor de la Bebida:</label>
+        <select id="flavorType">
+          <option value="Original (Jamaica + Guanábana)">Original (Jamaica + Guanábana)</option>
+          <option value="Con Piña (Digestiva)">Con Piña (Digestiva)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Endulzante:</label>
+        <select id="sweetType">
+          <option value="Con Panela Orgánica">Con Panela Orgánica</option>
+          <option value="Sin Panela (100% Natural)">Sin Panela (100% Natural)</option>
+        </select>
+      </div>
+
+      <button onclick="enviarWhatsApp()" class="btn-calc btn-whatsapp">
+        💬 Pedir por WhatsApp
+      </button>
     </div>
   </section>
 
+  <!-- Botón Flotante de WhatsApp -->
+  <a href="https://wa.me/593978874366?text=¡Hola!%20Deseo%20información%20sobre%20las%20bebidas%20medicinales." class="whatsapp-float" target="_blank">
+    <svg viewBox="0 0 32 32" class="whatsapp-icon">
+      <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 8.135-2.135c2.372 1.3 5.068 2.015 7.865 2.015 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.333c-2.452 0-4.855-0.655-6.962-1.902l-0.5-0.298-5.182 1.358 1.382-5.143-0.328-0.522c-1.372-2.182-2.095-4.708-2.095-7.311 0-7.362 5.988-13.35 13.35-13.35s13.35 5.988 13.35 13.35-5.988 13.35-13.35 13.35z"></path>
+    </svg>
+  </a>
+
+  <!-- Créditos del Emprendimiento -->
   <footer>
-    <p>Bebidas Medicinales Naturales &copy; 2026 — Escanea el QR para volver a consultar</p>
+    <div class="footer-content">
+      <h3>Proyecto de Emprendimiento e Innovación Tecnológica</h3>
+      <p class="materia">Materia: <strong>6-B - EMPRENDIMIENTO E INNOVACIÓN TECNOLÓGICA</strong></p>
+      
+      <div class="integrantes">
+        <p><strong>Desarrollado por:</strong></p>
+        <ul>
+          <li>ANGELO CABEZAS PRUNA</li>
+          <li>DIEGO ARIAS OLIVO</li>
+        </ul>
+      </div>
+
+      <p class="copyright">&copy; 2026 Bebida Medicinal Jamaica & Guanábana — Todos los derechos reservados</p>
+    </div>
   </footer>
 
   <script src="script.js"></script>
