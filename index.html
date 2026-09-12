@@ -75,7 +75,6 @@
   <section id="dosificacion" class="container">
     <h2 class="section-title">Guía de Dosis Recomendada</h2>
     <div class="grid">
-      
       <div class="card info-card">
         <span class="badge">General</span>
         <h3>Personas Adultas</h3>
@@ -99,7 +98,6 @@
         <p class="dosis"><strong>Hoja de Guanábana:</strong> 1 hoja (1 g) / día</p>
         <p class="desc">Refresco natural muy ligero para elevar las defensas de los pequeños.</p>
       </div>
-
     </div>
   </section>
 
@@ -139,6 +137,28 @@
       </button>
     </div>
   </section>
+
+  <!-- Botón Flotante de IA / Chatbot -->
+  <button class="ai-float" onclick="toggleChat()">
+    🤖 Consultar a la IA
+  </button>
+
+  <!-- Ventana Interactiva del Chatbot de IA -->
+  <div id="aiChatWindow" class="chat-window hidden">
+    <div class="chat-header">
+      <span>🤖 Asistente IA Medicinal</span>
+      <button onclick="toggleChat()" class="close-btn">&times;</button>
+    </div>
+    <div id="chatBody" class="chat-body">
+      <div class="chat-msg bot-msg">
+        ¡Hola! Soy la IA asistenta de este emprendimiento. Hazme cualquier pregunta sobre los beneficios de la jamaica, guanábana, piña o dosis.
+      </div>
+    </div>
+    <div class="chat-footer">
+      <input type="text" id="userInput" placeholder="Escribe tu duda aquí..." onkeypress="handleKeyPress(event)">
+      <button onclick="sendMessage()">Enviar</button>
+    </div>
+  </div>
 
   <!-- Botón Flotante de WhatsApp -->
   <a href="https://wa.me/593978874366?text=¡Hola!%20Deseo%20información%20sobre%20las%20bebidas%20medicinales." class="whatsapp-float" target="_blank">
