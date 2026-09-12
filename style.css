@@ -11,7 +11,6 @@ body {
   line-height: 1.6;
 }
 
-/* Header */
 .hero {
   background: linear-gradient(135deg, #800020, #2e7d32);
   color: white;
@@ -22,11 +21,7 @@ body {
   box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
-.hero h1 {
-  font-size: 2.3rem;
-  margin-bottom: 10px;
-}
-
+.hero h1 { font-size: 2.3rem; margin-bottom: 10px; }
 .fade-in { animation: fadeIn 1.2s ease-in-out; }
 .fade-in-delay { animation: fadeIn 2s ease-in-out; }
 
@@ -35,27 +30,10 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Layout */
-.container {
-  max-width: 1100px;
-  margin: 50px auto;
-  padding: 0 20px;
-}
+.container { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
+.section-title { text-align: center; margin-bottom: 30px; color: #1b4332; font-size: 1.8rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
 
-.section-title {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #1b4332;
-  font-size: 1.8rem;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-}
-
-/* Tarjetas */
 .card {
   background: white;
   padding: 25px;
@@ -65,43 +43,21 @@ body {
   border-top: 5px solid transparent;
 }
 
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.12);
-}
-
+.card:hover { transform: translateY(-8px); box-shadow: 0 12px 25px rgba(0,0,0,0.12); }
 .card-jamaica { border-top-color: #a4133c; }
 .card-guanabana { border-top-color: #2b9348; }
 .card-flavor { border-top-color: #f7b801; }
 
-.badge {
-  background: #e2e8f0;
-  padding: 4px 12px;
-  border-radius: 12px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
+.badge { background: #e2e8f0; padding: 4px 12px; border-radius: 12px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
 .badge-diabetes { background: #ffe3e3; color: #c92a2a; }
 .badge-kids { background: #e7f5ff; color: #1864ab; }
 .badge-pina { background: #fff3bf; color: #f59f00; }
 .badge-panela { background: #e6fcf5; color: #0ca678; }
 .badge-zero { background: #f8f9fa; color: #495057; border: 1px solid #ccc; }
 
-.dosis {
-  font-size: 0.95rem;
-  margin-top: 8px;
-  color: #2b9348;
-}
+.dosis { font-size: 0.95rem; margin-top: 8px; color: #2b9348; }
+.desc { font-size: 0.85rem; color: #666; margin-top: 10px; }
 
-.desc {
-  font-size: 0.85rem;
-  color: #666;
-  margin-top: 10px;
-}
-
-/* Formulario interactivo */
 .interactive-section {
   background: #e8f5e9;
   text-align: center;
@@ -111,26 +67,10 @@ body {
   margin: 40px auto;
 }
 
-.form-group {
-  margin-bottom: 15px;
-  text-align: left;
-}
+.form-group { margin-bottom: 15px; text-align: left; }
+.form-group label { display: block; font-weight: 600; margin-bottom: 5px; color: #1b4332; }
 
-.form-group label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 5px;
-  color: #1b4332;
-}
-
-select {
-  width: 100%;
-  padding: 12px;
-  border-radius: 12px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-  background: white;
-}
+select { width: 100%; padding: 12px; border-radius: 12px; border: 1px solid #ccc; font-size: 1rem; background: white; }
 
 .btn-main, .btn-calc {
   display: inline-block;
@@ -147,16 +87,76 @@ select {
   width: 100%;
 }
 
-.btn-whatsapp {
-  background: #25d366;
-  font-size: 1.1rem;
+.btn-whatsapp { background: #25d366; font-size: 1.1rem; }
+.btn-whatsapp:hover { background: #128c7e; }
+
+/* Botón flotante IA */
+.ai-float {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  background: #1b4332;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: transform 0.3s;
 }
 
-.btn-whatsapp:hover {
-  background: #128c7e;
+.ai-float:hover { transform: scale(1.05); }
+
+/* Ventana Chatbot */
+.chat-window {
+  position: fixed;
+  bottom: 150px;
+  right: 20px;
+  width: 320px;
+  height: 400px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  z-index: 1001;
+  overflow: hidden;
 }
 
-/* Botón flotante de WhatsApp */
+.hidden { display: none !important; }
+
+.chat-header {
+  background: #1b4332;
+  color: white;
+  padding: 15px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-btn { background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+
+.chat-body {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chat-msg { padding: 10px 14px; border-radius: 15px; font-size: 0.85rem; max-width: 80%; }
+.bot-msg { background: #e8f5e9; color: #1b4332; align-self: flex-start; }
+.user-msg { background: #2b9348; color: white; align-self: flex-end; }
+
+.chat-footer { padding: 10px; border-top: 1px solid #eee; display: flex; gap: 5px; }
+.chat-footer input { flex: 1; padding: 8px 12px; border-radius: 10px; border: 1px solid #ccc; outline: none; }
+.chat-footer button { background: #2b9348; color: white; border: none; padding: 8px 12px; border-radius: 10px; cursor: pointer; }
+
+/* Botón flotante WhatsApp */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
@@ -170,20 +170,10 @@ select {
   align-items: center;
   box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
   z-index: 1000;
-  transition: transform 0.3s;
 }
 
-.whatsapp-float:hover {
-  transform: scale(1.1);
-}
+.whatsapp-icon { width: 35px; height: 35px; fill: white; }
 
-.whatsapp-icon {
-  width: 35px;
-  height: 35px;
-  fill: white;
-}
-
-/* Footer / Créditos */
 footer {
   background: linear-gradient(135deg, #1b4332, #081c15);
   color: #f1f1f1;
@@ -194,17 +184,8 @@ footer {
   border-top-right-radius: 30px;
 }
 
-.footer-content h3 {
-  color: #74c69d;
-  font-size: 1.2rem;
-  margin-bottom: 8px;
-}
-
-.footer-content .materia {
-  font-size: 0.9rem;
-  color: #d8f3dc;
-  margin-bottom: 20px;
-}
+.footer-content h3 { color: #74c69d; font-size: 1.2rem; margin-bottom: 8px; }
+.footer-content .materia { font-size: 0.9rem; color: #d8f3dc; margin-bottom: 20px; }
 
 .integrantes {
   background: rgba(255, 255, 255, 0.08);
@@ -214,18 +195,8 @@ footer {
   margin-bottom: 20px;
 }
 
-.integrantes p {
-  color: #b7e4c7;
-  font-size: 0.85rem;
-  margin-bottom: 5px;
-}
-
+.integrantes p { color: #b7e4c7; font-size: 0.85rem; margin-bottom: 5px; }
 .integrantes ul { list-style: none; }
 .integrantes li { font-size: 1rem; font-weight: 600; color: #fff; }
 
-.copyright {
-  font-size: 0.8rem;
-  color: #95d5b2;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 15px;
-}
+.copyright { font-size: 0.8rem; color: #95d5b2; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 15px; }
