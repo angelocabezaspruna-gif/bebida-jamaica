@@ -4,7 +4,7 @@ function enviarWhatsApp() {
   const sabor = document.getElementById("flavorType").value;
   const dulce = document.getElementById("sweetType").value;
 
-  const mensaje = `¡Hola! 👋 Vengo de la página web de su emprendimiento.%0A%0A` +
+  const mensaje = `¡Hola! 👋 Vengo de la página web de *Agua Hibis*.%0A%0A` +
                   `*Deseo realizar un pedido:*%0A` +
                   `👤 *Perfil:* ${consumidor}%0A` +
                   `🍍 *Sabor:* ${sabor}%0A` +
@@ -14,7 +14,7 @@ function enviarWhatsApp() {
   window.open(`https://wa.me/${numeroTelefono}?text=${mensaje}`, '_blank');
 }
 
-/* Lógica de Chatbot con IA Real (OpenAI API) */
+/* Lógica del Asistente Virtual para Agua Hibis */
 function toggleChat() {
   const chatWin = document.getElementById("aiChatWindow");
   chatWin.classList.toggle("hidden");
@@ -24,10 +24,7 @@ function handleKeyPress(e) {
   if (e.key === "Enter") sendMessage();
 }
 
-// Reemplaza 'TU_API_KEY_AQUI' con tu clave de API de OpenAI (https://platform.openai.com)
-const OPENAI_API_KEY = "TU_API_KEY_AQUI"; 
-
-async function sendMessage() {
+function sendMessage() {
   const input = document.getElementById("userInput");
   const text = input.value.trim();
   if (!text) return;
@@ -35,45 +32,10 @@ async function sendMessage() {
   appendMessage(text, "user-msg");
   input.value = "";
 
-  // Mensaje temporal de "pensando..."
-  appendMessage("<i>Procesando respuesta...</i>", "bot-msg-temp");
-
-  try {
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${OPENAI_API_KEY}`
-      },
-      body: JSON.stringify({
-        model: "gpt-3.5-turbo",
-        messages: [
-          {
-            role: "system",
-            content: "Eres un experto asistente virtual medicinal para un emprendimiento que vende infusiones naturales de Flor de Jamaica y Hoja de Guanábana (con opciones de Piña y Panela). Responde amablemente y de forma resumida cualquier duda sobre salud, beneficios, preparación, o temas generales."
-          },
-          { role: "user", content: text }
-        ],
-        max_tokens: 150
-      })
-    });
-
-    const data = await response.json();
-    
-    // Eliminar mensaje temporal
-    const tempMsg = document.querySelector(".bot-msg-temp");
-    if (tempMsg) tempMsg.remove();
-
-    if (data.choices && data.choices.length > 0) {
-      appendMessage(data.choices[0].message.content, "bot-msg");
-    } else {
-      appendMessage("Lo siento, no pude obtener una respuesta en este momento.", "bot-msg");
-    }
-  } catch (error) {
-    const tempMsg = document.querySelector(".bot-msg-temp");
-    if (tempMsg) tempMsg.remove();
-    appendMessage("Hubo un problema al conectar con la IA. Asegúrate de configurar una API Key válida.", "bot-msg");
-  }
+  setTimeout(() => {
+    const response = getAIResponse(text.toLowerCase());
+    appendMessage(response, "bot-msg");
+  }, 600);
 }
 
 function appendMessage(msg, type) {
@@ -83,4 +45,22 @@ function appendMessage(msg, type) {
   div.innerHTML = msg;
   body.appendChild(div);
   body.scrollTop = body.scrollHeight;
+}
+
+function getAIResponse(input) {
+  if (input.includes("diabetes") || input.includes("azúcar") || input.includes("glucosa")) {
+    return "Para personas con diabetes recomendamos **Agua Hibis Zero (Sin Panela)**. La hoja de guanábana ayuda a reducir la glucosa en sangre y mejorar la sensibilidad a la insulina.";
+  } else if (input.includes("piña") || input.includes("digest")) {
+    return "Nuestra versión **Agua Hibis con Piña** contiene bromelina natural, excelente para desinflamar el estómago y mejorar la digestión.";
+  } else if (input.includes("niño") || input.includes("niños") || input.includes("pediatric")) {
+    return "Los niños mayores a 6 años pueden tomar **Agua Hibis** en dosis ligeras (3-4g de jamaica por litro) preferiblemente endulzado con panela orgánica.";
+  } else if (input.includes("dosis") || input.includes("gramos") || input.includes("preparar")) {
+    return "La preparación recomendada para Agua Hibis es **8 a 10g de jamaica** y **2 a 3 hojas de guanábana** hervidas por cada litro de agua.";
+  } else if (input.includes("panela") || input.includes("dulce")) {
+    return "La versión con panela orgánica aporta minerales esenciales como hierro y calcio sin usar azúcares procesados. Es ideal para dar energía saludable.";
+  } else if (input.includes("hola") || input.includes("buenas")) {
+    return "¡Hola! ¿En qué te puedo ayudar hoy sobre nuestra bebida **Agua Hibis**?";
+  } else {
+    return "Agua Hibis es una bebida medicinal que combina la acción antiinflamatoria de la Guanábana con el poder antioxidante y diurético de la Jamaica. ¡Puedes hacer tu pedido personalizado directamente en el formulario de la página!";
+  }
 }
