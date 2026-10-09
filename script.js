@@ -1,7 +1,7 @@
 // Cálculo dinámico del precio
 function calcularTotal() {
   const selectPack = document.getElementById('packType');
-  const price = parseFloat(selectPack.options[selectPack.selectedIndex].getAttribute('data-price')) || 1.50;
+  const price = parseFloat(selectPack.options[selectPack.selectedIndex].getAttribute('data-price')) || 1.00;
   const units = parseInt(document.getElementById('unitsCount').value) || 1;
   
   const total = (price * units).toFixed(2);
@@ -85,7 +85,7 @@ function sendMessage() {
     } else if (lower.includes('diabetes') || lower.includes('azucar') || lower.includes('sin panela')) {
       reply = "Para personas con diabetes o dieta Keto recomendamos nuestra variante 'Agua Hibis Zero (Sin Panela)', que conserva todas las propiedades medicinales sin aportar calorías ni azúcar.";
     } else if (lower.includes('precio') || lower.includes('cuanto cuesta') || lower.includes('valor')) {
-      reply = "Nuestros precios son: Botella 500ml a $1.50, Botella 1 Litro a $2.50 y el Six-Pack de 500ml a $8.00.";
+      reply = "Nuestros precios son: Botella 500ml a $1.00, Botella 1 Litro a $2.50 y el Six-Pack de 500ml a $5.00.";
     } else if (lower.includes('pina') || lower.includes('piña')) {
       reply = "La versión con Piña incluye bromelina natural, excelente para reducir la hinchazón abdominal y mejorar la digestión después de las comidas.";
     } else if (lower.includes('hola') || lower.includes('buenas')) {
