@@ -11,17 +11,57 @@ body {
   line-height: 1.6;
 }
 
+/* Header con animación de Logo */
 .hero {
-  background: linear-gradient(135deg, #800020, #2e7d32);
+  background: linear-gradient(135deg, #120006, #800020, #1b4332);
   color: white;
   text-align: center;
-  padding: 80px 20px;
+  padding: 60px 20px;
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-.hero h1 { font-size: 3rem; font-weight: 700; margin-bottom: 10px; letter-spacing: 1px; }
+.logo-container {
+  margin: 0 auto 15px;
+  width: 170px;
+  height: 170px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 25px rgba(224, 49, 49, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  animation: float 4s ease-in-out infinite;
+}
+
+.brand-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.tagline {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #f87171;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.hero h1 { font-size: 2.8rem; font-weight: 700; margin-bottom: 10px; letter-spacing: 1px; color: #ffffff; }
+.hero-subtitle { font-size: 1rem; max-width: 600px; margin: 0 auto 20px; color: #e2e8f0; }
+
 .fade-in { animation: fadeIn 1.2s ease-in-out; }
 .fade-in-delay { animation: fadeIn 2s ease-in-out; }
 
@@ -85,6 +125,16 @@ select { width: 100%; padding: 12px; border-radius: 12px; border: 1px solid #ccc
   cursor: pointer;
   transition: background 0.3s;
   width: 100%;
+}
+
+.pulse-btn {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(43, 147, 72, 0.7); }
+  70% { box-shadow: 0 0 0 12px rgba(43, 147, 72, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(43, 147, 72, 0); }
 }
 
 .btn-whatsapp { background: #25d366; font-size: 1.1rem; }
@@ -182,6 +232,14 @@ footer {
   margin-top: 50px;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
+}
+
+.footer-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 2px solid #74c69d;
 }
 
 .footer-content h3 { color: #74c69d; font-size: 1.2rem; margin-bottom: 8px; }
