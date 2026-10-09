@@ -11,9 +11,9 @@ body {
   line-height: 1.6;
 }
 
-/* Header con Logo Transparente */
+/* Header con fondo adaptado para integrar el logo */
 .hero {
-  background: linear-gradient(135deg, #0f0004, #5c0018, #0e2a1d);
+  background: linear-gradient(135deg, #000000, #400010, #0a2016);
   color: white;
   text-align: center;
   padding: 50px 20px 60px;
@@ -34,6 +34,7 @@ body {
   border: none;
 }
 
+/* Aplicación de mix-blend-mode para hacer transparente el fondo negro de la imagen */
 .brand-logo-full {
   width: 100%;
   height: auto;
@@ -41,7 +42,7 @@ body {
   box-shadow: none;
   border: none;
   background: transparent;
-  filter: drop-shadow(0px 0px 15px rgba(239, 68, 68, 0.6));
+  mix-blend-mode: screen;
   transition: transform 0.3s ease;
 }
 
@@ -234,7 +235,7 @@ footer {
   border-radius: 0;
   margin-bottom: 15px;
   background: transparent;
-  filter: drop-shadow(0px 0px 8px rgba(116, 198, 157, 0.5));
+  mix-blend-mode: screen;
 }
 
 .footer-content h3 { color: #74c69d; font-size: 1.2rem; margin-bottom: 8px; }
