@@ -11,9 +11,9 @@ body {
   line-height: 1.6;
 }
 
-/* Header con Logo Completo */
+/* Header con Logo Transparente */
 .hero {
-  background: linear-gradient(135deg, #050002, #4a0013, #0f281e);
+  background: linear-gradient(135deg, #0f0004, #5c0018, #0e2a1d);
   color: white;
   text-align: center;
   padding: 50px 20px 60px;
@@ -23,25 +23,30 @@ body {
 }
 
 .logo-wrapper {
-  margin: 0 auto 20px;
-  max-width: 320px;
-  width: 90%;
+  margin: 0 auto 15px;
+  max-width: 280px;
+  width: 85%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: transparent;
+  box-shadow: none;
+  border: none;
 }
 
 .brand-logo-full {
   width: 100%;
   height: auto;
-  border-radius: 25px;
-  box-shadow: 0 0 30px rgba(224, 49, 49, 0.4);
-  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+  filter: drop-shadow(0px 0px 15px rgba(239, 68, 68, 0.6));
   transition: transform 0.3s ease;
 }
 
 .brand-logo-full:hover {
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
 .hero-subtitle {
@@ -226,9 +231,10 @@ footer {
 .footer-logo {
   width: 100px;
   height: auto;
-  border-radius: 15px;
+  border-radius: 0;
   margin-bottom: 15px;
-  border: 2px solid #74c69d;
+  background: transparent;
+  filter: drop-shadow(0px 0px 8px rgba(116, 198, 157, 0.5));
 }
 
 .footer-content h3 { color: #74c69d; font-size: 1.2rem; margin-bottom: 8px; }
