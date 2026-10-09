@@ -11,56 +11,45 @@ body {
   line-height: 1.6;
 }
 
-/* Header con animación de Logo */
+/* Header con Logo Completo */
 .hero {
-  background: linear-gradient(135deg, #120006, #800020, #1b4332);
+  background: linear-gradient(135deg, #050002, #4a0013, #0f281e);
   color: white;
   text-align: center;
-  padding: 60px 20px;
+  padding: 50px 20px 60px;
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
 }
 
-.logo-container {
-  margin: 0 auto 15px;
-  width: 170px;
-  height: 170px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 50%;
-  padding: 10px;
+.logo-wrapper {
+  margin: 0 auto 20px;
+  max-width: 320px;
+  width: 90%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  box-shadow: 0 0 25px rgba(224, 49, 49, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  animation: float 4s ease-in-out infinite;
+  align-items: center;
 }
 
-.brand-logo {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  border-radius: 50%;
+.brand-logo-full {
+  width: 100%;
+  height: auto;
+  border-radius: 25px;
+  box-shadow: 0 0 30px rgba(224, 49, 49, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s ease;
 }
 
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
+.brand-logo-full:hover {
+  transform: scale(1.03);
 }
 
-.tagline {
-  font-style: italic;
-  font-size: 1.1rem;
-  color: #f87171;
-  letter-spacing: 0.5px;
-  margin-bottom: 8px;
-  font-weight: 600;
+.hero-subtitle {
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin: 0 auto 25px;
+  color: #e2e8f0;
 }
-
-.hero h1 { font-size: 2.8rem; font-weight: 700; margin-bottom: 10px; letter-spacing: 1px; color: #ffffff; }
-.hero-subtitle { font-size: 1rem; max-width: 600px; margin: 0 auto 20px; color: #e2e8f0; }
 
 .fade-in { animation: fadeIn 1.2s ease-in-out; }
 .fade-in-delay { animation: fadeIn 2s ease-in-out; }
@@ -235,10 +224,10 @@ footer {
 }
 
 .footer-logo {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin-bottom: 10px;
+  width: 100px;
+  height: auto;
+  border-radius: 15px;
+  margin-bottom: 15px;
   border: 2px solid #74c69d;
 }
 
