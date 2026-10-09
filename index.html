@@ -10,7 +10,24 @@
 </head>
 <body>
 
-  <!-- Header / Hero con Logo Completo -->
+  <!-- Barra de Navegación Fija -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <img src="logo.png" alt="Agua Hibis Nav Logo" class="nav-logo">
+        <span>Agua Hibis</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#beneficios">Beneficios</a></li>
+        <li><a href="#variantes">Variantes</a></li>
+        <li><a href="#precios">Precios</a></li>
+        <li><a href="#dosificacion">Dosis</a></li>
+        <li><a href="#pedido" class="nav-btn">Pedir Ahora</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header / Hero con Logo Integrado -->
   <header class="hero">
     <div class="hero-content">
       <div class="logo-wrapper fade-in">
@@ -22,10 +39,11 @@
   </header>
 
   <!-- Beneficios de la Infusión Base -->
-  <section class="container">
+  <section id="beneficios" class="container">
     <h2 class="section-title">Beneficios Medicinales de Agua Hibis</h2>
     <div class="grid">
       <div class="card card-jamaica">
+        <div class="card-icon">🌺</div>
         <h3>Flor de Jamaica</h3>
         <ul>
           <li>Diurético natural y desintoxicante.</li>
@@ -36,6 +54,7 @@
       </div>
 
       <div class="card card-guanabana">
+        <div class="card-icon">🍃</div>
         <h3>Hoja de Guanábana</h3>
         <ul>
           <li>Potente antiinflamatorio y relajante.</li>
@@ -48,7 +67,7 @@
   </section>
 
   <!-- Sección de Sabores y Variantes -->
-  <section class="container">
+  <section id="variantes" class="container">
     <h2 class="section-title">Variantes de Agua Hibis</h2>
     <div class="grid">
       <div class="card card-flavor">
@@ -70,6 +89,32 @@
         <h3>Agua Hibis Zero (Sin Panela)</h3>
         <p class="dosis"><strong>Aporte Extra:</strong> 0% Calorías</p>
         <p class="desc">La versión perfecta para personas con diabetes, en dieta keto o buscando máxima reducción de glucosa en sangre.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tabla de Precios y Presentaciones -->
+  <section id="precios" class="container">
+    <h2 class="section-title">Nuestras Presentaciones</h2>
+    <div class="grid grid-pricing">
+      <div class="pricing-card">
+        <h3>Individual 500ml</h3>
+        <div class="price">$1.50</div>
+        <p class="price-desc">Ideal para llevar al trabajo, gimnasio o estudio diario.</p>
+        <a href="#pedido" class="btn-secondary">Seleccionar</a>
+      </div>
+      <div class="pricing-card popular">
+        <div class="popular-tag">Más Vendido</div>
+        <h3>Pack Familiar 1 Litro</h3>
+        <div class="price">$2.50</div>
+        <p class="price-desc">Perfecto para compartir en el almuerzo con toda la familia.</p>
+        <a href="#pedido" class="btn-main">Seleccionar</a>
+      </div>
+      <div class="pricing-card">
+        <h3>Six-Pack Saludable (500ml x 6)</h3>
+        <div class="price">$8.00</div>
+        <p class="price-desc">Ahorras $1.00. Abastece tu semana completa de bienestar.</p>
+        <a href="#pedido" class="btn-secondary">Seleccionar</a>
       </div>
     </div>
   </section>
@@ -104,23 +149,53 @@
     </div>
   </section>
 
+  <!-- Preguntas Frecuentes -->
+  <section class="container">
+    <h2 class="section-title">Preguntas Frecuentes</h2>
+    <div class="faq-container">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">¿Cuánto tiempo se conserva Agua Hibis en refrigeración? <span>+</span></button>
+        <div class="faq-answer">
+          <p>Al ser un producto 100% artesanal sin conservantes ni químicos, se conserva perfectamente hasta por 7 a 10 días bien mantenida en refrigeración.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">¿Hacen envíos a domicilio? <span>+</span></button>
+        <div class="faq-answer">
+          <p>¡Sí! Coordinamos envíos directos a tu ubicación a través de nuestro botón de WhatsApp.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">¿Se puede consumir fría o caliente? <span>+</span></button>
+        <div class="faq-answer">
+          <p>¡De ambas formas! Fría es sumamente refrescante para días calurosos, y caliente funciona como una infusión relajante antes de dormir.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Calculadora y Pedido Personalizado -->
   <section id="pedido" class="interactive-section">
-    <h2>Personaliza tu Agua Hibis</h2>
-    <p>Selecciona tu perfil, sabor y dulce ideal para enviar tu pedido directo a nuestro WhatsApp:</p>
+    <h2>Personaliza tu Pedido de Agua Hibis</h2>
+    <p>Selecciona la cantidad, sabor y dulce ideal para calcular el costo y enviar tu orden por WhatsApp:</p>
     
     <div class="calculator-box">
       <div class="form-group">
-        <label>Tipo de Consumidor:</label>
-        <select id="userType">
-          <option value="Adulto Promedio">Adulto Promedio</option>
-          <option value="Persona con Diabetes">Persona con Diabetes</option>
-          <option value="Niño (6-12 años)">Niño (6-12 años)</option>
+        <label>Presentación:</label>
+        <select id="packType" onchange="calcularTotal()">
+          <option value="Botella 500ml ($1.50)" data-price="1.50">Botella 500ml ($1.50)</option>
+          <option value="Botella 1 Litro ($2.50)" data-price="2.50">Botella 1 Litro ($2.50)</option>
+          <option value="Six-Pack 500ml ($8.00)" data-price="8.00">Six-Pack 500ml ($8.00)</option>
         </select>
       </div>
 
       <div class="form-group">
-        <label>Sabor de Agua Hibis:</label>
+        <label>Cantidad:</label>
+        <input type="number" id="unitsCount" value="1" min="1" max="20" onchange="calcularTotal()" onkeyup="calcularTotal()">
+      </div>
+
+      <div class="form-group">
+        <label>Sabor Preferido:</label>
         <select id="flavorType">
           <option value="Original (Jamaica + Guanábana)">Original (Jamaica + Guanábana)</option>
           <option value="Con Piña (Digestiva)">Con Piña (Digestiva)</option>
@@ -131,12 +206,16 @@
         <label>Endulzante:</label>
         <select id="sweetType">
           <option value="Con Panela Orgánica">Con Panela Orgánica</option>
-          <option value="Sin Panela (100% Natural)">Sin Panela (100% Natural)</option>
+          <option value="Sin Panela (100% Natural / Zero)">Sin Panela (100% Natural / Zero)</option>
         </select>
       </div>
 
+      <div class="total-display">
+        Total estimado: <strong id="totalPrice">$1.50</strong>
+      </div>
+
       <button onclick="enviarWhatsApp()" class="btn-calc btn-whatsapp">
-        💬 Pedir Agua Hibis por WhatsApp
+        💬 Pedir por WhatsApp
       </button>
     </div>
   </section>
@@ -154,7 +233,7 @@
     </div>
     <div id="chatBody" class="chat-body">
       <div class="chat-msg bot-msg">
-        ¡Hola! Soy la IA de Agua Hibis. Hazme cualquier pregunta sobre los beneficios de la jamaica, guanábana, piña, dosis o cómo realizar tu pedido.
+        ¡Hola! Soy la IA de Agua Hibis. Hazme cualquier pregunta sobre los beneficios de la jamaica, guanábana, piña, dosis o precios de tu pedido.
       </div>
     </div>
     <div class="chat-footer">
